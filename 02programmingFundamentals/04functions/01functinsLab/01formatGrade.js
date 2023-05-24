@@ -12,7 +12,9 @@ function formatGrade(grade) {
         gradeText = "Excellent";
     }
 
-    let gradeValueText = grade < 3 ? "2" : grade.toFixed(2);
-    console.log(`${gradeText} (${gradeValueText})`);
+    function print(){
+        console.log(`${gradeText} (${grade})`);
+    }
+    print()
 }
 formatGrade(5)

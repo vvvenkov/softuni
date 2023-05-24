@@ -1,13 +1,12 @@
-function simpleCalculator(num1, num2, operator){
-    let res = 0;
-    switch(operator){
-        case "add": res = num1 + num2; break;
-        case "subtract": res = num1 - num2; break;
-        case "multiply": res = num1 * num2; break;
-        case "divide": res = num1 / num2; break;
+function simpleCalculator(num1, num2, operator) {
+    let operations = {
+        "add": num1 + num2,
+        "subtract": num1 - num2,
+        "divide": num1 / num2,
+        "multiply": num1 * num2,
     }
-    console.log(res);
+    console.log(operations[operator]);
 }
 simpleCalculator(40,
-8,
-'divide')
+    8,
+    'divide')

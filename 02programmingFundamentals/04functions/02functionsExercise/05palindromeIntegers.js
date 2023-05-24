@@ -2,9 +2,9 @@ function palindromeIntegers(arr) {
     for (let i = 0; i < arr.length; i++) {
         let palindrome = String(arr[i]);
         let buff = "";
-        for (let j = palindrome.length - 1; j >= 0; j--){
+        for (let j = palindrome.length - 1; j >= 0; j--) {
             buff += palindrome[j];
-           
+
         }
         console.log(buff === palindrome);
     }

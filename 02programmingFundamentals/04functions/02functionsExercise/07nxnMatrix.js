@@ -1,12 +1,10 @@
 function nxnMatrix(num) {
-    let res = "";
-    let boolean = false;
-
-    for (let rows = 1; rows <= num; rows++) {
-        for (let cols = 1; cols <= rows; cols++) {
-            res += `${rows} ${cols}`
+    for (let i = 0; i < num; i++) {
+        let res = "";
+        for (let j = 0; j < num; j++) {
+            res += num + " ";
         }
+        console.log(res + " ");
     }
-    console.log(res);
 }
-nxnMatrix(3)
+nxnMatrix(7)

@@ -1,60 +1,56 @@
 function passwordValidator(password) {
-    let lengthCheck = passWordLength(password);
-    let specialCharCheck = specialChar(password);
-    let validDigit = numberCount(password);
-    printResult(lengthCheck, specialCharCheck, validDigit);
+    lengthCheck(password);
+    charCheck(password);
+    digitCheck(password);
 
-    function passWordLength(password) {
-        return password.length >= 6 && password.length <= 10;
-    }
-    function specialChar(password) {
-        for (let ch of password) {
-            let char = ch.charCodeAt(0);
-            let isLower = checkforLowerCase(char);
-            let isUpper = checkforUpperCase(char);
-            let isNumber = checkforNumber(char);
-            if (!isLower && !isUpper && !isNumber) {
-                return false;
-            }
-        }
-        return true;
-    }
-    function checkforLowerCase(char) {
-        return char >= 97 && char <= 122;
-    }
-    function checkforUpperCase(char) {
-        return char >= 65 && char <= 90;
-    }
-    function checkforNumber(char) {
-        return char >= 48 && char <= 57;
-    }
-    function numberCount(password) {
-        let counter = 0;
-        for (let ch of password) {
-            let num = ch.charCodeAt(0);
-            if (num >= 48 && num <= 57) {
-                counter++;
-            } else {
-                continue;
-            }
-            if (counter === 2) {
-                return true;
-            }
-        }
-    }
-    function printResult(lengthCheck, specialCharCheck, validDigit) {
-        if (!lengthCheck) {
+    function lengthCheck(password) {
+        if (password.length >= 6 && password.length <= 10) {
+            lengthCheck = true;
+            return;
+        } else {
             console.log("Password must be between 6 and 10 characters");
         }
-        if (!specialCharCheck) {
-            console.log("Password must consist only of letters and digits");
+    }
+
+    function charCheck(password) {
+        for (let i = 0; i < password.length; i++) {
+            let pass = password[i].charCodeAt();
+            if (pass > 47 && pass < 58) {
+                continue;
+            } else if (pass > 64 && pass < 91) {
+                continue;
+            } else if (pass > 96 && pass < 123) {
+                continue;
+            } else {
+                console.log("Password must consist only of letters and digits");
+                return;
+            }
         }
-        if (!validDigit) {
+        charCheck = true;
+        return;
+    }
+
+    function digitCheck(password) {
+        let digitCounter = 0;
+        for (let i = 0; i < password.length; i++) {
+            let pass = password[i].charCodeAt();
+
+            if (pass > 47 && pass < 58) {
+                digitCounter++;
+            }
+        }
+        if (digitCounter > 1) {
+            digitCheck = true;
+            return;
+        } else {
             console.log("Password must have at least 2 digits");
         }
-        if (lengthCheck, specialChar, validDigit) {
-            console.log("Password is valid");
-        }
+    }
+
+    if (lengthCheck === true && charCheck === true && digitCheck === true) {
+        console.log("Password is valid");
+    } else {
+        return;
     }
 }
 passwordValidator("Pa$s$s")

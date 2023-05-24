@@ -2,11 +2,11 @@ function arrayRotation(arr, rotations) {
     let buffArr = [];
 
     for (let i = 0; i < rotations; i++) {
-        let initialElement = arr[0];
-        for (let j = 1; j < arr.length; j++){
-            buffArr.push(arr[j]);
+        for (let j = 1; j < arr.length; j++) {
+            let curChar = arr[j];
+            buffArr.push(curChar);
         }
-        buffArr.push(initialElement);
+        buffArr.push(arr[0]);
         arr = buffArr;
         buffArr = [];
     }

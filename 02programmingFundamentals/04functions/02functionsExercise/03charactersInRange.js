@@ -6,18 +6,16 @@ function characterInRange(char1, char2) {
     let smallest = smalletsInRange(charToCode1, charToCode2);
     let biggest = biggestInRange(charToCode1, charToCode2);
 
-    for (let i = smallest + 1; i < biggest; i++){
+    for (let i = smallest + 1; i < biggest; i++) {
         buff += String.fromCharCode(i) + " ";
     }
 
     console.log(buff);
-function smalletsInRange(char1, char2){
-    return (Math.min(char1, char2))
-}
-function biggestInRange(char1, char2){
-    return (Math.max(char1, char2))
-}
-
-
+    function smalletsInRange(char1, char2) {
+        return (Math.min(char1, char2))
+    }
+    function biggestInRange(char1, char2) {
+        return (Math.max(char1, char2))
+    }
 }
 characterInRange("#", ":")

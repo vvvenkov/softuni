@@ -28,5 +28,5 @@ function loadingBar(n) {
         }
     }
 }
-loadingBar(60
+loadingBar(30
     )

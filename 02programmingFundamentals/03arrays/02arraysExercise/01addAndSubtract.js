@@ -1,23 +1,25 @@
 function addAndSubtract(arr) {
     let newArr = [];
-    let arrSum = 0;
+    let oldArrSum = 0;
     let newArrSum = 0;
 
-    for (let i = 0; i < arr.length; i++){
-        let currentNumber = arr[i];
-        arrSum += currentNumber;
-        if (currentNumber % 2 === 0){
-            currentNumber += i;
-            newArr.push(currentNumber)
-            newArrSum += currentNumber;
+    for (let el of arr) {
+        oldArrSum += el;
+    }
+    for (let i = 0; i < arr.length; i++) {
+        let currentNum = arr[i];
+        if (currentNum % 2 === 0) {
+            currentNum += i;
+            newArr.push(currentNum)
+            newArrSum += currentNum;
         } else {
-            currentNumber -= i;
-            newArr.push(currentNumber);
-            newArrSum += currentNumber;
+            currentNum -= i;
+            newArr.push(currentNum)
+            newArrSum += currentNum;
         }
     }
     console.log(newArr);
-    console.log(arrSum);
+    console.log(oldArrSum);
     console.log(newArrSum);
 }
 addAndSubtract([5, 15, 23, 56, 35])

@@ -7,6 +7,5 @@ function printAndSum(num1, num2) {
     }
     console.log(buff);
     console.log("Sum: " + sum);
-
 }
 printAndSum(5, 10)
