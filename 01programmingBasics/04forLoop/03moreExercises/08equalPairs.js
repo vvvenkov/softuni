@@ -1,23 +1,39 @@
 function equalPairs(input) {
-    let pairs = Number(input[0]);
-    let pair = 0;
-    
-    for (let i = 1; i <= pairs; i++){
-        let currentNum = input[i];
+    let numOfPairs = Number(input[0]);
+    let pairSum = 0;
+    let diff = 0;
+    let maxDiff = 0;
+    let newPair;
+    let oldPair;
 
-        if (i % 2 === 0){
-            pair += currentNum;
+    for (let i = 1; i < input.length; i++) {
+        pairSum += Number(input[i]);
+
+        if (i % 2 === 0) {
+            newPair = pairSum;
+            if (oldPair !== newPair) {
+                if (oldPair > newPair) {
+                    diff = oldPair - newPair;
+                } else if (newPair > oldPair) {
+                    diff = newPair - oldPair;
+                }
+            }
+            if (diff > maxDiff) {
+                maxDiff = diff;
+            }
+            pairSum = 0;
+            oldPair = newPair;
         }
-        if (i % 2 !== 0){
-            pair+= currentNum;
-        }
-        console.log(pair);
+    }
+
+    if (diff === 0) {
+        console.log("Yes, value=" + newPair);
+    } else {
+        console.log("No, maxdiff=" + diff);
     }
 }
-equalPairs([3,
-    1,
-    2,
+equalPairs([2,
+    -1,
     0,
-    3,
-    4,
+    0,
     -1])
