@@ -4,7 +4,7 @@ function matchPhoneNumber(input) {
 
     let match = pattern.exec(phoneNumberList);
     let res = [];
-    while(match !== null){
+    while (match !== null) {
         res.push(match[0]);
 
         match = pattern.exec(phoneNumberList)

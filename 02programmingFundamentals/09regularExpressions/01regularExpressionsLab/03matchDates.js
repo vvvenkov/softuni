@@ -1,12 +1,12 @@
-function matchDates(input){
+function matchDates(input) {
     let pattern = /\b(?<day>\d{2})([-.\/])(?<month>[A-Z]{1}[a-z]{2})\2(?<year>\d{4})\b/g
 
     let validDate = pattern.exec(input);
-    
-    while(validDate !== null){
+
+    while (validDate !== null) {
         let day = validDate.groups["day"];
         let month = validDate.groups["month"];
-        let year = validDate.groups["year"]        
+        let year = validDate.groups["year"]
         console.log(`Day: ${day}, Month: ${month}, Year: ${year}`);
         validDate = pattern.exec(input)
     }

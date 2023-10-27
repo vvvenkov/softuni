@@ -4,13 +4,13 @@ function furniture(data) {
 
     let match = pattern.exec(data)
 
-    for (let line of data){
-        if (line === "Purchase"){
+    for (let line of data) {
+        if (line === "Purchase") {
             break;
         }
-        
+
         let furniture = match.groups[furniture];
-        let price = match.groups[price] 
+        let price = match.groups[price]
     }
 
 }
