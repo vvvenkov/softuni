@@ -1,27 +1,18 @@
 function addAndRemove(arr) {
-    let number = 0;
     let newArr = [];
-    let isEmpty = false;
 
-    for (let command of arr) {
-        number++;
-        switch (command) {
-            case "add":
-                newArr.push(number)
-                break;
-            case "remove":
-                newArr.pop(number)
-                break;
-        }
-        if (newArr.length < 1) {
-            isEmpty = true;
-            break;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "add") {
+            newArr.push(i + 1)
+        } else {
+            newArr.pop(i - 1)
         }
     }
-    if (isEmpty) {
-        console.log("Empty");
-    } else {
+
+    if (newArr.length > 0) {
         console.log(newArr.join(" "));
+    } else {
+        console.log("Empty");
     }
 }
 addAndRemove(["add", "add", "add", "add"])
