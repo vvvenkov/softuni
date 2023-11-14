@@ -9,9 +9,9 @@ function letterCombinations(input) {
         for (let y = startLetter; y <= endLetter; y++){
             for (let j = startLetter; j <= endLetter; j++){
                 if (i !== skipLetter && y !== skipLetter && j !== skipLetter){
-                    let char1 = String.fromCharCode("a".charCodeAt() + (i - 97));
-                    let char2 = String.fromCharCode("a".charCodeAt() + (y - 97));
-                    let char3 = String.fromCharCode("a".charCodeAt() + (j - 97));
+                    let char1 = String.fromCharCode(i);    //String.fromCharCode("a".charCodeAt() + (i - 97));//??? why??
+                    let char2 = String.fromCharCode(y);
+                    let char3 = String.fromCharCode(j);
                     combo += (`${char1}${char2}${char3} `)
                     combinationsCount++;
                 }
