@@ -5,4 +5,4 @@ function primeNumberChecker(num) {
         console.log("false");
     }
 }
-primeNumberChecker(81)
+primeNumberChecker(2)
