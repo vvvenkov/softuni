@@ -1,21 +1,25 @@
 function bombNumber(arr1, arr2) {
-    let power = arr2.pop();
-    let specialNumber = arr2.pop();
-    let sum = 0;
+    let number = Number(arr2[0]);
+    let power = Number(arr2[1]);
+
+    let result = 0;
+    let curNum = 0;
 
     for (let i = 0; i < arr1.length; i++) {
-        let curNumber = Number(arr1[i]);
-        if (curNumber === specialNumber) {
-            arr1.splice(i, i - power + 1);
-            arr1.splice(i - power, i)
-            break;
+        curNum = arr1[i];
+        
+        if (curNum === number) {
+            arr1.splice(i - power, power + 1)
+            arr1.splice(i - power, power) 
         }
     }
-    console.log(arr1);
-    for (let el of arr1) {
-        sum += el;
+    
+    for (let el of arr1){
+        result += el;
     }
-    console.log(sum);
+    console.log(arr1);
+    console.log(result);
+
 }
 bombNumber([1, 2, 2, 4, 2, 2, 2, 9],
     [4, 2])
