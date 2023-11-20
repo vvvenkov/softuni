@@ -17,7 +17,6 @@ function bombNumber(arr1, arr2) {
     for (let el of arr1){
         result += el;
     }
-    console.log(arr1);
     console.log(result);
 
 }
