@@ -1,6 +1,4 @@
-function catFactory(input) {
-    let catList = [];
-
+function catFactory(arr) {
     class Cat {
         constructor(name, age) {
             this.name = name
@@ -11,7 +9,7 @@ function catFactory(input) {
         }
     }
 
-    for (let info of input) {
+    for (let info of arr) {
         let [name, age] = info.split(" ");
         let cat = new Cat(name, age)
         cat.meow()
