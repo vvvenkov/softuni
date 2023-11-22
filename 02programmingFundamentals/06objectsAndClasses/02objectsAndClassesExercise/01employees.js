@@ -23,7 +23,7 @@ console.log("--------------------------");
 function employes2(input) {
 
     let res = [];
-    for (let name of input) {
+    for (let name of input) { 
         let obj = {
             name: name,
             length: name.length

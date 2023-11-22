@@ -1,13 +1,12 @@
 function heroes(input) {
-    let obj = {};
     let arr = [];
 
     for (let el of input) {
         let [hero, level, items] = el.split(" / ")
-        obj = {
+        let obj = {
             hero: hero,
             level: level,
-            items: items.split(", ")
+            items: items 
         }
         arr.push(obj)
     }
@@ -16,7 +15,7 @@ function heroes(input) {
     for (let el of arr){
         console.log(`Hero: ${el.hero}`);
         console.log(`level => ${el.level}`);
-        console.log(`items => ${el.items.join(", ")}`);
+        console.log(`items => ${el.items}`); 
     }
 }
 heroes([

@@ -1,8 +1,8 @@
 function catFactory(arr) {
     class Cat {
-        constructor(name, age) {
-            this.name = name
-            this.age = age
+        constructor(catName, catAge) {
+            this.name = catName;
+            this.age = catAge;
         }
         meow() {
             console.log(`${this.name}, ${this.age} says Meow`);
@@ -10,8 +10,8 @@ function catFactory(arr) {
     }
 
     for (let info of arr) {
-        let [name, age] = info.split(" ");
-        let cat = new Cat(name, age)
+        let [catName, catAge] = info.split(" ");
+        let cat = new Cat(catName, catAge)
         cat.meow()
     }
 }

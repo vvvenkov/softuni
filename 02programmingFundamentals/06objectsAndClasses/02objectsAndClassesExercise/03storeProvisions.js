@@ -17,7 +17,7 @@ function storeProvisions(stock, order) {
     }
 
     for (let el of Object.keys(obj)) {
-        console.log(`${el} -> ${obj[el]}`);
+        console.log(`${el}  -> ${obj[el]}`);
     }
 }
 storeProvisions([

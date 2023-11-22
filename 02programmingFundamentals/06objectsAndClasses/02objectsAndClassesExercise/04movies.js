@@ -1,22 +1,32 @@
-function movies(input) {
-    let arr = [];
-    let obj = {};
+function movies(arr) {
+    let movieList = [];
 
-    for (let line of input) {
+    for (let line of arr) {
         if (line.includes("addMovie")) {
-            let name = line.split("addMovie ")[1]
-            obj.name = name;
+            let name = line.split("addMovie ")[1];
+            movieList.push({ name })
         } else if (line.includes("directedBy")) {
             let [name, director] = line.split(" directedBy ");
-            if (obj.hasOwnProperty(name)){
-                obj.director = director;
+            let movie = movieList.find(el => el.name === name); //short-hand proverka* if the arr and object have the movie.
+
+            if (movie) {             //if movie is declared, then...
+                movie.director = director;
             }
         } else if (line.includes("onDate")) {
-            let [name, date] = line.split("onDate")
+            let [name, date] = line.split(" onDate ")
+            let movie = movieList.find(el => el.name === name);
+
+            if (movie) {
+                movie.date = date;
+            }
         }
-        arr.push(obj)
     }
-    console.log(obj);
+
+    movieList.forEach(movie =>{                                        //for each loop  
+        if (movie.name && movie.director && movie.date){
+            console.log(JSON.stringify(movie));
+        }
+    })
 }
 movies([
     'addMovie Fast and Furious',

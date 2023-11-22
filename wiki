@@ -1,0 +1,7 @@
+
+
+
+
+
+
+02/06objectsAndClasses/02/04movies => .forEach cycle and how to find a value in a array/array with objects (let search = arr.find(el => el.search === search))

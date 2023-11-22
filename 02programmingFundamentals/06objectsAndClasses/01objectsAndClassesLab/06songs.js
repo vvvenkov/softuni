@@ -14,7 +14,7 @@ function songs(arr) {
 
     for (let info of arr) {
         let [typeList, name, time] = info.split("_");
-        let song = new Song(typeList, name, time);
+        new Song(typeList, name, time);
 
         if (typeList === type) {
             console.log(name);
