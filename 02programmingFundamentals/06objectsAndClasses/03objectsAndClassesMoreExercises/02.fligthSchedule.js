@@ -1,39 +1,59 @@
 function fligthSchedule(input) {
+    let obj = {};
 
     let flights = input[0];
-    let flightsToObject = [];
-
-    let changedflights = input[1];
-    let status = String(input[2]);
+    let flightsToChange = input[1];
+    let print = String(input[2]);
 
     let changed = [];
+    let unchanged = [];
+    let Status = "";
+    let codesChanged = [];
 
-    flights.forEach(flight => {
-        let [code, destination, destination2] = flight.split(" ");
-
-        if (destination2 !== undefined) {
-            destination = `${destination} ${destination2}`;
-            flightsToObject.push({ code, destination })
-        } else {
-            flightsToObject.push({ code, destination })
+    for (let element of flights) {
+        let [code, Destination, Destination2] = element.split(" ");
+        if (Destination2 !== undefined) {
+            Destination = `${Destination} ${Destination2}`
         }
-    });
 
-    changedflights.forEach(el => {
-        let [code, change] = el.split(" ");
+        for (let element2 of flightsToChange) {
+            let check = element2.split(" ")[0]
 
-
-        flightsToObject.forEach(flight => {
-            if (JSON.stringify(el).includes("Cancelled")){
-                changed.push(flight)
+            if (check === code) {
+                Status = "Cancelled"
+                codesChanged.push(code);
+                changed.push({ Destination, Status })
+                break;
             }
-        })
-    })
+        }
+    }
 
-    changed.forEach(flight => {
-        console.log(flight);
-    })
-    
+    for (let element of flights) {
+        let [code, Destination, Destination2] = element.split(" ");
+        if (Destination2 !== undefined) {
+            Destination = `${Destination} ${Destination2}`
+        }
+
+        for (let element2 of flightsToChange) {
+            let check = element2.split(" ")[0]
+
+            if (codesChanged.includes(check)) {
+                Status = "Ready to fly"
+                unchanged.push({ Destination, Status })
+                break;
+            }
+        }
+    }
+
+    if (print === "Cancelled") {
+        for (let el of changed) {
+            console.log(el);
+        }
+    } else {
+        for (let el of unchanged) {
+            console.log(el);
+        }
+    }
 
 }
 fligthSchedule([['WN269 Delaware',

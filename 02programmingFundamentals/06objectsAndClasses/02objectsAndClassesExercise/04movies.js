@@ -22,8 +22,8 @@ function movies(arr) {
         }
     }
 
-    movieList.forEach(movie =>{                                        //for each loop  
-        if (movie.name && movie.director && movie.date){
+    movieList.forEach(movie => {                                        //for each loop  
+        if (movie.name && movie.director && movie.date) {
             console.log(JSON.stringify(movie));
         }
     })
