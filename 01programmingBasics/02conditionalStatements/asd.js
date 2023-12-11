@@ -1,5 +1,0 @@
-function shushki(){
-
-
-}
-shushki()
