@@ -1,43 +1,65 @@
 function letterStreamn(input) {
     let index = 0;
-    let command = input[index];
-    let word = "";
-    let nCount = 0;
-    let oCount = 0;
-    let cCount = 0;
+    let currentSymbol = input[index];
+    let symbolToAscii = "";
 
-    while (command !== "End") {
-        if (command === "n" && nCount < 1) {
-            nCount++;
-        } else if (command === "o" && oCount < 1) {
-            oCount++;
-        } else if (command === "c" && cCount < 1) {
-            cCount++;
-        } else {
-            word += command;
+    let cCounter = 0;
+    let nCounter = 0;
+    let oCounter = 0;
+    let string;
+    let finalString;
+
+    while (currentSymbol !== "End") {
+        symbolToAscii = currentSymbol.charCodeAt();
+        if ((symbolToAscii >= 65 && symbolToAscii <= 90) || (symbolToAscii >= 97 && symbolToAscii <= 122)) {
+            if (symbolToAscii === 99) {
+                if (cCounter === 0) {
+                    cCounter++;
+                } else {
+                    string += currentSymbol;
+                }
+            } else if (symbolToAscii === 110) {
+                if (nCounter === 0) {
+                    nCounter++;
+                } else {
+                    string += currentSymbol;
+                }
+            } else if (symbolToAscii === 111) {
+                if (oCounter === 0) {
+                    oCounter++;
+                } else {
+                    string += currentSymbol;
+                }
+            } else {
+                string += currentSymbol;
+            }
         }
-        if (nCount === 1 && oCount === 1 && cCount === 1) {
-            word += " ";
-            nCount = 0;
-            oCount = 0;
-            cCount = 0;
+        if (cCounter > 0 && nCounter > 0 && oCounter > 0) {
+            finalString += string + " ";
+            string = "";
+            cCounter = 0;
+            nCounter = 0;
+            oCounter = 0;
         }
         index++;
-        command = input[index];
+        currentSymbol = input[index];
     }
-    console.log(word);
+    console.log(finalString);
 }
-letterStreamn(["%",
-    "!",
-    "c",
-    "^",
-    "B",
-    "`",
-    "o",
+letterStreamn(["o",
+    "S",
     "%",
     "o",
+    "l",
+    "^",
+    "v",
+    "e",
+    "c",
+    "n",
+    "&",
+    "m",
+    "e",
+    "c",
     "o",
-    "M",
-    ")",
-    "{",
-    "n", "/", "A", "D", "End"])
+    "n",
+    "End"])
