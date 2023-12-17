@@ -3,17 +3,17 @@ function building(input) {
     let rooms = Number(input[1]);
 
     for (let i = floors; i > 0; i--) {
-        let buff = "";
-        for (let y = 0; y < rooms; y++) {
-            if (i === floors) {
-                buff += (`L${i}${y} `)
-            } else if (i % 2 === 0) {
-                buff += (`O${i}${y} `)
-            } else {
-                buff += (`A${i}${y} `)
+        let res = "";
+        for (let j = 0; j < rooms; j++) {
+            if (i === floors){
+                res += (`L${i}${j} `)
+            } else if (i % 2 !== 0){
+                res += (`A${i}${j} `)
+            } else if (i % 2 === 0){
+                res += (`O${i}${j} `)
             }
         }
-        console.log(buff);
+        console.log(res);
     }
 }
 building(["6", "4"])
