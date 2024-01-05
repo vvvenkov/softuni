@@ -3,42 +3,46 @@ function onTimeForExam(input) {
     let examMinutes = Number(input[1]);
 
     let arrivalHour = Number(input[2]);
-    let arrivalMinute = Number(input[3]);
+    let arrivalMinutes = Number(input[3]);
 
-    let totalExamTime = (examHour * 60) + examMinutes;
-    let totalArrivalTime = (arrivalHour * 60) + arrivalMinute;
+    let beforeOrAfter;
+    let deltaMinutes = 0;
+    let deltaHours = 0;
+    let isOnTime;
 
-    let diff = Math.abs(totalArrivalTime - totalExamTime)
+    let examInMinutes = examHour * 60 + examMinutes;
+    let arrivalInMinutes = arrivalHour * 60 + arrivalMinutes;
+    deltaMinutes = examInMinutes - arrivalInMinutes;
 
-    if (totalArrivalTime > totalExamTime) {
-        console.log("Late");
-        if (diff >= 60 && diff < 70) {
-            console.log(`${Math.trunc(diff / 60)}:0${diff % 60} hours after the start`);
-        } else if (diff > 60) {
-            console.log(`${Math.trunc(diff / 60)}:${diff % 60} hours after the start`);
-        } else if (diff === 60) {
-            console.log(`${Math.trunc(diff / 60)}:${diff % 60}0 hours after the start`);
+    if (deltaMinutes < 0) {
+        beforeOrAfter = "after";
+        deltaMinutes *= -1;
+        isOnTime = "Late";
+    } else {
+        beforeOrAfter = "before";
+        if (deltaMinutes <= 30) {
+            isOnTime = "On time";
         } else {
-            console.log(diff + " minutes after the start");
+            isOnTime = "Early";
         }
-    } else if (totalArrivalTime <= totalExamTime - 31) {
-        console.log("Early");
-        if (diff >= 60 && diff < 70) {
-            console.log(`${Math.trunc(diff / 60)}:0${diff % 60} hours before the start`);
-        } else if (diff > 60) {
-            console.log(`${Math.trunc(diff / 60)}:${diff % 60} hours before the start`);
-        } else if (diff === 60) {
-            console.log(`${Math.trunc(diff / 60)}:0 hours before the start`);
+    }
+
+    console.log(isOnTime);
+
+    if (deltaMinutes > 0 && deltaMinutes <= 59) {
+        console.log(`${deltaMinutes} minutes ${beforeOrAfter} the start`)
+    } else if (deltaMinutes > 59) {
+        deltaHours = Math.floor(deltaMinutes / 60);
+        deltaMinutes = deltaMinutes % 60;
+        if (deltaMinutes < 10) {
+            console.log(`${deltaHours}:0${deltaMinutes} hours ${beforeOrAfter} the start`);
         } else {
-            console.log(diff + " minutes before the start");
+            console.log(`${deltaHours}:${deltaMinutes} hours ${beforeOrAfter} the start`);
         }
-    } else if (totalArrivalTime <= totalExamTime - 30) {
-        console.log("On time");
-        console.log(diff + " minutes before the start");
     }
 }
-onTimeForExam(["14",
-"00",
-"13",
-"55"])
+onTimeForExam(["11",
+    "30",
+    "8",
+    "12"])
 
