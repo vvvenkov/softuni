@@ -7,7 +7,7 @@ function sunGlasses(input) {
             for (let j = 0; j < 2 * n; j++) {
                 string += "*";
             }
-            for (let k = 0; k <= n; k++) {
+            for (let k = 0; k < n; k++) {
                 string += " ";
             }
             for (let y = 0; y < 2 * n; y++) {
@@ -24,7 +24,7 @@ function sunGlasses(input) {
                 for (let j = 0; j < 1; j++) {
                     string += "*";
                 }
-                for (let g = 0; g <= n; g++) {
+                for (let g = 0; g < n; g++) {
                     string += "|";
                 }
                 for (let n = 0; n < 1; n++) {
@@ -46,7 +46,7 @@ function sunGlasses(input) {
                 for (let j = 0; j < 1; j++) {
                     string += "*";
                 }
-                for (let g = 0; g <= n; g++) {
+                for (let g = 0; g < n; g++) {
                     string += " ";
                 }
                 for (let n = 0; n < 1; n++) {

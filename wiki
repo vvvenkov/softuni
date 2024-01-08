@@ -4,5 +4,9 @@
 
 
 
-02/06objectsAndClasses/02/04movies => .ls
-ach cycle and how to find a value in a array/array with objects (let search = arr.find(el => el.search === search))
+02/06/02/04movies
+for each cycle and how to find a value in a array/array with objects (let search = arr.find(el => el.search === search))
+
+03/01/01/04circleArea
+calculate a cirlce's Area
+check for type of Value 
