@@ -1,7 +1,0 @@
-Wiki of all covered material, use instead of google
-
-
-02/06/02/04movies - for each cycle and how to find a value in a array with objects (let search = arr.find(el => el.search === search))
-03/01/01/04circleArea - calculate a cirlce's Area, check for type of Value
-03/01/01/08daysOfMonths - getDate() find the number of days in each month
-03/01/01/10aggregateElements - inverse, inverse of three numbers
