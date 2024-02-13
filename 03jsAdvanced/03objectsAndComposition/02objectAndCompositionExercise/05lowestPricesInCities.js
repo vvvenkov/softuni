@@ -1,22 +1,26 @@
 function lowestPricesInCities(arr) {
     let obj = {};
+    let arrOfObjects = [];
 
-    arr.forEach(line => {
+    for (let line of arr) {
         let [town, product, price] = line.split(" | ");
         price = Number(price);
 
-        if (obj.hasOwnProperty(product)) {
-            let currentPrice = obj[product]["price"];
-            if (currentPrice > price) {
-                obj[product] = { town, price };
-            }
-        } else {
-            obj[product] = { town, price };
-        }
-    });
+        let find = arrOfObjects.find(el => el.product === product);
 
-    for (let [product, value] of Object.entries(obj)) {
-        console.log(`${product} -> ${value.price} (${value.town})`);
+        if (!find) {
+            obj.town = town;
+            obj.product = product;
+            obj.price = price;
+            arrOfObjects.push(obj);
+        } else if (price < find.price) {
+            find.town = town;
+            find.price = price;
+        }
+        obj = {};
+    }
+    for (let el of arrOfObjects) {
+        console.log(`${el.product} -> ${el.price} (${el.town})`);
     }
 }
 lowestPricesInCities(['Sample Town | Sample Product | 1000',
