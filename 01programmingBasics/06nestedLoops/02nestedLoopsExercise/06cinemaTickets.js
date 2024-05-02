@@ -1,98 +1,32 @@
-function cinemaTickets(input) {
-    let index = 0;
-    let movieTitle = null;
-    let seats = null;
+function tickets(input) {
+    let counterKids = 0;
+    let counterStudents = 0;
+    let counterStandards = 0;
+    let command;
 
-    let standardTickets = 0;
-    let kidTickets = 0;
-    let studentTickets = 0;
-    let curSeats = 0;
-    let totalTickets = 0;
-    let boolean = false;
-    let changeMovie = false;
+    while ((command = input.shift()) !== 'Finish') {
+        let movie = command;
+        let totalSeats = Number(input.shift());
+        let usedSeats = 0;
+        let ticketType;
 
-    while (input[index] !== "Finish") {
-        movieTitle = input[index];
-        index++;
-        seats = Number(input[index]);
-        index++;
-        while (input[index] !== "End") {
-            if (input[index] !== "standard" && input[index] !== "kid" && input[index] !== "student") {
-                changeMovie = true;
-                break;
-            }
-            if (input[index] === "standard") {
-                standardTickets++;
-                totalTickets++;
-                curSeats++;
-            } else if (input[index] === "kid") {
-                kidTickets++;
-                totalTickets++;
-                curSeats++;
-            } else if (input[index] === "student") {
-                totalTickets++;
-                studentTickets++;
-                curSeats++;
-            }
-            index++;
-            if (input[index] === "Finish") {
-                boolean = true;
-                break;
-            }
-            if (input[index] === "End"){
-                break;
+        while (usedSeats < totalSeats && (ticketType = input.shift()) !== 'End') {
+            usedSeats++;
+            if (ticketType === 'kid') {
+                counterKids++;
+            } else if (ticketType === 'student') {
+                counterStudents++;
+            } else if (ticketType === 'standard') {
+                counterStandards++;
             }
         }
-        if (changeMovie) {
-            console.log(movieTitle + ` - ${((curSeats / seats) * 100).toFixed(2)}% full.`);
-            seats = 0;
-            curSeats = 0;
-        } else {
-            console.log(movieTitle + ` - ${((curSeats / seats) * 100).toFixed(2)}% full.`);
-            seats = 0;
-            curSeats = 0;
-            index++;
-        }
-        if (boolean) {
-            break;
-        }
+        console.log(`${movie} - ${(usedSeats * 100.0 / totalSeats).toFixed(2)}% full.`);
     }
-    console.log("Total tickets: " + totalTickets);
-    console.log(((studentTickets / totalTickets) * 100).toFixed(2) + "% student tickets.");
-    console.log(((standardTickets / totalTickets) * 100).toFixed(2) + "% standard tickets.");
-    console.log(((kidTickets / totalTickets) * 100).toFixed(2) + "% kids tickets.");
+    let totalTickets = counterKids + counterStudents + counterStandards;
+
+    console.log(`Total tickets: ${totalTickets}`);
+    console.log(`${((counterStudents / totalTickets) * 100).toFixed(2)}% student tickets.`);
+    console.log(`${((counterStandards / totalTickets) * 100).toFixed(2)}% standard tickets.`);
+    console.log(`${((counterKids / totalTickets) * 100).toFixed(2)}% kids tickets.`);
+
 }
-cinemaTickets(["Shutter Island",
-    9,
-    "standard",
-    "standard",
-    "standard",
-    "student",
-    "student",
-    "student",
-    "kid",
-    "kid",
-    "kid",
-    "Rush",
-    9,
-    "standard",
-    "standard",
-    "standard",
-    "student",
-    "student",
-    "student",
-    "kid",
-    "kid",
-    "kid",
-    "Deadpool",
-    9,
-    "standard",
-    "standard",
-    "standard",
-    "student",
-    "student",
-    "student",
-    "kid",
-    "kid",
-    "kid",
-    "Finish"])

@@ -1,7 +1,6 @@
 function sumAndProduct(input) {
     let n = input[0];
 
-
     for (let a = 1; a <= 9; a++) {
         for (let b = 9; b >= a; b--) {
             for (let c = 0; c <= 9; c++) {
