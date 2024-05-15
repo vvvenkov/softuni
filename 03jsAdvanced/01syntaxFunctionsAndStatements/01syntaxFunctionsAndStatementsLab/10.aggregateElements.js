@@ -1,16 +1,17 @@
 function aggregateElements(input) {
-    function sum(input) {
-        return (input[0] + input[1] + input[2]);b
-    }
-    function inverse(input) {
-        return ((input[0] / input[0]) + (input[0] / input[1]) + (input[0] / input[2])); //inverse of three number
-    }
-    function toString(input) {
-        return (String(input[0]) + String(input[1]) + String(input[2]));
+    let sum = 0;
+    let invertedSum = 0;
+    let concatSum = "";
+
+    for (let i = 0; i < input.length; i++) {
+        sum += input[i];
+        invertedSum += 1 / input[i];
+        concatSum += input[i];
     }
 
-    console.log(sum(input))
-    console.log(inverse(input));
-    console.log(toString(input));
+
+    console.log(sum);
+    console.log(invertedSum);
+    console.log(stringSum);
 }
 aggregateElements([1, 2, 3])

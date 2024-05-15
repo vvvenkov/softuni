@@ -1,4 +1,0 @@
-function pyramidOfKingDjoser(input){
-
-}
-pyramidOfKingDjoser()
