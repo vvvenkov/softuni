@@ -1,5 +1,4 @@
 function cityTaxes(name, population, treasury) {
-
     let obj = {
         name,
         population,
