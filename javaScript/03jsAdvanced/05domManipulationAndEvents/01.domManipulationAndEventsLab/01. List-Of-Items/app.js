@@ -15,5 +15,4 @@ function addItem() {
 
     //focus on input 
     input.focus();
-
 }
