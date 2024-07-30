@@ -24,6 +24,6 @@ function solve() {
   currentParagraph += `</p>`;
   output.innerHTML += currentParagraph;
   currentParagraph = "";
-  i--;
+  i--
  }
 }

@@ -20,7 +20,7 @@ function solve() {
     });
   } else {
     string = "Error!";
-  }33
+  }
   debugger
   document.getElementById("result").textContent = string;
 }
