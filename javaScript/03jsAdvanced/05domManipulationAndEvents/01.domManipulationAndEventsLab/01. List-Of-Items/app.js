@@ -10,9 +10,9 @@ function addItem() {
     //append li element to DOM
     ul.append(li);
 
-    //clear the entry bar
+    //clear the entry bar     =    clear the text in the entry bar 
     input.value = "";
 
-    //focus on input 
+    //focus on input          =    don't remove the writing cursor 
     input.focus();
 }

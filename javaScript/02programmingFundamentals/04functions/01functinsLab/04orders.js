@@ -6,6 +6,7 @@ function orders(order, count) {
         case "coke": price = 1.40; break;
         case "snacks": price = 2.00; break;
     }
+    
     console.log((price * count).toFixed(2));
 }
 orders("coffe", 2)
