@@ -62,8 +62,10 @@ function solution(str) {
                     missingIngredient = 'flavour';
                     return error();
                 }
+
                 carbohydrate -= 5 * quantity;
                 fat -= 7 * quantity;
+                flavour -= 3 * quantity;
                 return 'Success';
 
             } else if (element === 'eggs') {                  // Eggs = 5 protein, 1 fat & 1 flavour 
@@ -79,6 +81,7 @@ function solution(str) {
                     missingIngredient = flavour;
                     return error();
                 }
+
                 protein -= 5 * quantity;
                 fat -= quantity;
                 flavour -= quantity
@@ -100,6 +103,7 @@ function solution(str) {
                     missingIngredient = 'flavour';
                     return error();
                 }
+                
                 protein -= 10 * quantity;
                 carbohydrate -= 10 * quantity;
                 fat -= 10 * quantity;
@@ -108,7 +112,7 @@ function solution(str) {
             }
 
             function error() {
-                return `Error, not enough ${missingIngredient} in stock`
+                return `Error: not enough ${missingIngredient} in stock`
             }
         } else if (command === 'report') {
             return (`protein=${protein} carbohydrate=${carbohydrate} fat=${fat} flavour=${flavour}`);
